@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for i in datas %}
+<div style="padding-left: 10%; padding-right: 10%; padding-top: 5%; background-color: rgb(2, 2, 73);">
+<div class="card text-center" style="border-radius: 25px; border-color: black; border-width: 3px; background-color:  rgb(215, 215, 246);">
+    <div class="card-header" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+      <h5>{{i.sector}}</h5>
+    </div>
+    <div class="card-body" style="background-color:  rgb(215, 215, 246);">
+      <h5 class="card-title" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">{{i.name}}</h5>
+      <p class="card-text">{{i.symbol}}</p>
+      <a href="{% url 'stock_details' symbol=i.symbol %}" class="btn btn-primary" style="background-color: rgb(3, 3, 120);">Go to details</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      1 days ago
+    </div>
+  </div>
+</div>
+  {% endfor %}
+
+<!-- Pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if datas.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ datas.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+  
+        {% for num in datas.paginator.page_range %}
+            <li class="page-item {% if num == datas.number %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+        {% endfor %}
+  
+        {% if datas.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ datas.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ datas.paginator.num_pages }}" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+  </nav>
+
+{% endblock content %}

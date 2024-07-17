@@ -1,0 +1,551 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      {% if user.username %}
+                      Welcome ,{{user.username}}<br>
+                      to Nifty Wizard
+                      {% else %}
+                      Welcome <br>
+                      to Nifty Wizard
+                      {% endif %}
+                    </h1>
+                    <p>
+                      Nifty Navigator is your ultimate tool for tracking and predicting the performance of stocks in the Nifty 50 index. Designed for both novice investors and seasoned traders, our app provides the insights you need to make informed decisions and maximize your returns.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'about' %}" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome <br>
+                      to Nifty Wizard
+                    </h1>
+                    <p>
+                      Nifty Navigator is your ultimate tool for tracking and predicting the performance of stocks in the Nifty 50 index. Designed for both novice investors and seasoned traders, our app provides the insights you need to make informed decisions and maximize your returns.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'about' %}" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box" >
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome <br>
+                      to Nifty Wizard
+                    </h1>
+                    <p>
+                      Nifty Navigator is your ultimate tool for tracking and predicting the performance of stocks in the Nifty 50 index. Designed for both novice investors and seasoned traders, our app provides the insights you need to make informed decisions and maximize your returns.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'about' %}" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Our <span>Services</span>
+          </h2>
+          <p>
+            here are the some services available now ,we are working on some other services that will help you to make easy the trading and investment,stay tuned.....
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  stock fundamentals
+                </h5>
+                <p>
+                  Experience the power of real-time fundamentals for all Nifty 50 stocks with our platform. Stay ahead of the market by accessing up-to-the-minute financial metrics, balance sheet analyses, income statement updates and dividend information. Our comprehensive dashboard provides instant updates on key ratios and indicators, enabling you to make timely and informed investment decisions. With custom alerts and reliable data at your fingertips, enhance your analysis, boost your confidence, and manage risks effectively.
+                </p>
+                <a href="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  future price prediction
+                </h5>
+                <p>
+                  Harnessing advanced machine learning techniques,we have developed 50 individual Long Short-Term Memory(LSTM) models to predict future prices of stocks in the Nifty 50. LSTMs are a type of RNN well-suited for time series forecasting due to their ability to learn from historical patterns and trends.By training models on extensive daily stock data up to the present,we can generate highly accurate predictions that help you stay ahead in the market.This cutting-edge approach ensures you have access to reliable,data-driven insights for every stock in the Nifty 50.
+                </p>
+                <a href="">
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  real time chart
+                </h5>
+                <p>
+                  In addition to our predictive models, our platform provides real-time charts for all Nifty 50 stocks, displaying up to 30 trading days of data. These charts offer a visual representation of stock performance, enabling you to track trends and make informed decisions quickly. With live updates and detailed graphical analysis, you can stay on top of market movements and respond promptly to changes in stock prices. Our interactive charts allow you in on specific time frames, giving you a comprehensive toolset to enhance your trading strategy.
+                </p>
+                <a href="">
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="">
+            View All
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          About <span>Us</span>
+        </h2>
+        <p>
+          Welcome to NIFTY WIZARD, the ultimate platform for tracking and predicting the performance of Nifty 50 stocks. Our mission is to empower investors with cutting-edge tools and insights that enable smarter, data-driven investment decisions
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              We Are NIFTY WIZARD
+            </h3>
+            <p>
+              At NIFTY WIZARD, we are a team of passionate financial experts, data scientists, and technologists dedicated to revolutionizing the way you invest in the stock market. With a deep understanding of market dynamics and a commitment to innovation, we strive to provide you with the most reliable and accurate financial insights.
+            </p>
+            <p>
+              We leverage advanced machine learning techniques, including Long Short-Term Memory (LSTM) models, to predict future stock prices. By training 50 individual models on extensive daily stock data, we generate highly accurate predictions for each stock in the Nifty 50 index. Our approach ensures that you have access to the most up-to-date and reliable data-driven insights.
+            </p>
+            <p>
+              In addition to our predictive models, we offer real-time charts for all Nifty 50 stocks, displaying up to 30 trading days of data. These interactive charts provide a visual representation of stock performance, allowing you to track trends, zoom in on specific time frames, and overlay technical indicators. Stay on top of market movements with live updates and detailed graphical analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Why Choose <span>Us</span>
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w1.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Accuracy
+            </h5>
+            <p>
+              Accuracy: Our sophisticated LSTM models provide highly accurate stock predictions.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w2.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Timeliness
+            </h5>
+            <p>
+              Timeliness: Access real-time financial data and charts to stay ahead of the market.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w3.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Comprehensive Tools
+            </h5>
+            <p>
+              Comprehensive Tools: Our platform offers a complete set of tools for both novice and seasoned investors.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w4.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              User-Centric Design
+            </h5>
+            <p>
+              User-Centric Design: Enjoy an intuitive and user-friendly interface designed to enhance your investment experience.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- end why section -->
+
+  <!-- team section -->
+  <!-- <section class="team_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container heading_center">
+        <h2 class="">
+          Our <span> Team</span>
+        </h2>
+      </div>
+
+      <div class="team_container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/team-1.jpg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Joseph Brown
+                </h5>
+                <p>
+                  Marketing Head
+                </p>
+              </div>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/team-2.jpg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Nancy White
+                </h5>
+                <p>
+                  Marketing Head
+                </p>
+              </div>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/team-3.jpg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Earl Martinez
+                </h5>
+                <p>
+                  Marketing Head
+                </p>
+              </div>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/team-4.jpg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Josephine Allard
+                </h5>
+                <p>
+                  Marketing Head
+                </p>
+              </div>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- end team section -->
+
+
+  <!-- client section -->
+
+  <!-- <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          What says our <span>Customers</span>
+        </h2>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel client_owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client1.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      LusDen
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client2.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Zen Court
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client1.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      LusDen
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client2.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Zen Court
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- end client section -->
+  {% endblock content %}
+
+ 

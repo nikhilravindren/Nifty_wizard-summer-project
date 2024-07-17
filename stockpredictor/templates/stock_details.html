@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow" style="border-radius: 25px; border-color: black; border-width: 3px; background-color:  rgb(215, 215, 246);">
+        <div class="card-header text-dark" >
+            <span style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;"><center>{{ stock.name }} - Stock Detail</center></span>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <h5 class="card-title" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: large;">stock name : {{ stock.name }}</h5>
+                    {% if context.price %}
+                        <p class="card-text" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: large;">current Price : {{ context.price }}</p>
+                    {% else %}
+                        <p class="card-text" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: large;">Price information not available.</p>
+                    {% endif %}
+                    <p style="color: black;">{{stock.description}}</p>
+                </div>
+                <div class="col-md-7">
+                    <br>
+                    <br>
+                    
+                    <div id="chart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if fundamental %}
+    <div class="card mt-4" style="border-radius: 25px; border-color: black; border-width: 3px; background-color:  rgb(215, 215, 246);">
+        <div class="card-header text-dark">
+            <span style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;"><center>Fundamentals</center></span>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">Market Capital</dt>
+                        <dt class="col-sm-6">{{ fundamental.market_cap }} cr</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">ROE</dt>
+                        <dt class="col-sm-6">{{ fundamental.roe }} %</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">Debt</dt>
+                        <dt class="col-sm-6">{{ fundamental.debt }}</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">EPS</dt>
+                        <dt class="col-sm-6">{{ fundamental.eps }}</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">PE Ratio</dt>
+                        <dt class="col-sm-6">{{ fundamental.pe_ratio }}</dt>
+                        <br>
+                        <br>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <dl class="row">
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">PB Ratio</dt>
+                        <dt class="col-sm-6">{{ fundamental.pb_ratio }}</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">Dividend</dt>
+                        <dt class="col-sm-6">{{ fundamental.divident }} %</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">Book Value</dt>
+                        <dt class="col-sm-6">{{ fundamental.book_value }}</dt>
+                        <br>
+                        <br>
+                        <dt class="col-sm-6">Face Value</dt>
+                        <dt class="col-sm-6">{{ fundamental.face_value }}</dt>
+                        <br>
+                        <br>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    {% endif %}
+    <div class="card shadow" style="border-radius: 25px; border-color: black; border-width: 3px; background-color:  rgb(215, 215, 246);">
+        <div class="card-header text-dark" >
+            <span style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;"><center>find future price of {{ stock.name }} here!</center></span>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="{% url 'predicting_1' symbol=stock.symbol %}" class="btn btn-primary" style="background-color: rgb(3, 3, 120);margin-left: 25%;">predict the price of next day</a>
+                </div>
+                <div class="col-md-8" >
+                    {% if prediction %}
+                {% if context.value == 1 %}
+                <div style="color: green; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">{{prediction}}, positive movement may happen</div>
+                {% else %}
+                <div style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">{{prediction}}, negative movement may happen</div>
+                {% endif %}
+                <p>
+                    <div style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Disclaimer:</div>
+
+                    Our stock market predictions are based on historical data and technical analysis. Please note that future performance can be influenced by company results and fundamental factors. We recommend consulting a financial advisor before making investment decisions.</p>
+                {% endif %}
+                </div>
+                <!-- <div class="col-md-4">
+                    <a href="" class="btn btn-primary" style="background-color: rgb(3, 3, 120);margin-left: 25%;">price of next month</a>
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+</div>
+
+<!-- Include Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var dates = {{ context.dates|safe }};
+        var prices = {{ context.prices|safe }};
+
+        var trace = {
+            x: dates,
+            y: prices,
+            type: 'scatter',
+            mode: 'lines+markers',
+            marker: { color: 'blue' }
+        };
+
+        var layout = {
+            title: 'Last 30 Trading Days for {{ stock.name }}',
+            xaxis: {
+                title: 'Date',
+                tickangle: -45
+            },
+            yaxis: {
+                title: 'Closing Price'
+            },
+            margin: {
+                l: 50,
+                r: 50,
+                b: 100,
+                t: 50,
+                pad: 4
+            }
+        };
+
+        var data = [trace];
+
+        Plotly.newPlot('chart', data, layout);
+    });
+</script>
+
+{% endblock content %}

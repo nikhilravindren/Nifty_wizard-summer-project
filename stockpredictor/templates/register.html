@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="padding-left: 25%; padding-right: 25%; padding-top: 5%; background-color: rgb(2, 2, 73); padding-bottom: 5%;">
+    <div class="card text-center" style="border-radius: 25px; border-color: black; border-width: 3px; background-color:  rgb(215, 215, 246);">
+        <div class="card-header" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+          <h5>create an account here</h5>
+        </div>
+        <div class="card-body" style="background-color:  rgb(215, 215, 246);">
+          <h5 class="card-title" >{{msg}}</h5>
+          <form action="" method="post">
+            {% csrf_token %}
+            <div style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large; align-items: center;">
+            <label for="username" style="margin-left: 1%;margin-right: 10%;">UserName</label>
+            <input type="text" name="username" id="username" style="border-radius: 20px; font-size: x-large" placeholder="enter username">
+            <br>
+            <br>
+            <label for="email" style="margin-left: 1%;margin-right: 13%;">Email id</label>
+            <input type="email" name="email" id="email" style="border-radius: 20px; font-size: x-large" placeholder="enter email">
+            <br>
+            <br>
+            <label for="password" style="margin-left: 1%;margin-right: 10%;">Password</label>
+            <input type="password" name="password" id="password" style="border-radius: 20px; font-size: x-large" placeholder="enter password">
+            <br>
+            <br>
+            <label for="cpassword" style="margin-left: 0%; margin-right: 0%;">Confirm Password</label>
+            <input type="password" name="cpassword" id="cpassword" style="border-radius: 20px; font-size: x-large" placeholder="enter password again">
+        </div>
+          <p class="card-text"></p>
+          <button class="btn btn-primary" style="background-color: rgb(3, 3, 120);" type="submit" >Submit</button>
+        </form>
+        </div>
+        <div class="card-footer text-body-secondary">
+            already have an account? 
+            <a href="{% url 'login' %}">login here</a>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

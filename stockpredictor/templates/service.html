@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+  <!-- service section -->
+<div style="background-color:  rgb(2, 2, 73);">
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Our <span>Services</span>
+          </h2>
+          <p style="font-size: x-large; color: black;">
+            here are the some services available now ,we are working on some other services that will help you to make easy the trading and investment,stay tuned.....
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  stock fundamentals
+                </h5>
+                <p>
+                  Experience the power of real-time fundamentals for all Nifty 50 stocks with our platform. Stay ahead of the market by accessing up-to-the-minute financial metrics, balance sheet analyses, income statement updates and dividend information. Our comprehensive dashboard provides instant updates on key ratios and indicators, enabling you to make timely and informed investment decisions. With custom alerts and reliable data at your fingertips, enhance your analysis, boost your confidence, and manage risks effectively.
+                </p>
+                <a href="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  future price prediction
+                </h5>
+                <p>
+                  Harnessing advanced machine learning techniques,we have developed 50 individual Long Short-Term Memory(LSTM) models to predict future prices of stocks in the Nifty 50. LSTMs are a type of RNN well-suited for time series forecasting due to their ability to learn from historical patterns and trends.By training models on extensive daily stock data up to the present,we can generate highly accurate predictions that help you stay ahead in the market.This cutting-edge approach ensures you have access to reliable,data-driven insights for every stock in the Nifty 50.
+                </p>
+                <a href="">
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  real time chart
+                </h5>
+                <p>
+                  In addition to our predictive models, our platform provides real-time charts for all Nifty 50 stocks, displaying up to 30 trading days of data. These charts offer a visual representation of stock performance, enabling you to track trends and make informed decisions quickly. With live updates and detailed graphical analysis, you can stay on top of market movements and respond promptly to changes in stock prices. Our interactive charts allow you in on specific time frames, giving you a comprehensive toolset to enhance your trading strategy.
+                </p>
+                <a href="">
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="">
+            View All
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  <!-- end service section -->
+
+  {% endblock content %}

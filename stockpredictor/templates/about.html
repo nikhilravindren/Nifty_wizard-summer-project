@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          About <span>Us</span>
+        </h2>
+        <p>
+          Welcome to NIFTY WIZARD, the ultimate platform for tracking and predicting the performance of Nifty 50 stocks. Our mission is to empower investors with cutting-edge tools and insights that enable smarter, data-driven investment decisions
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              We Are NIFTY WIZARD
+            </h3>
+            <p>
+              At NIFTY WIZARD, we are a team of passionate financial experts, data scientists, and technologists dedicated to revolutionizing the way you invest in the stock market. With a deep understanding of market dynamics and a commitment to innovation, we strive to provide you with the most reliable and accurate financial insights.
+            </p>
+            <p>
+              We leverage advanced machine learning techniques, including Long Short-Term Memory (LSTM) models, to predict future stock prices. By training 50 individual models on extensive daily stock data, we generate highly accurate predictions for each stock in the Nifty 50 index. Our approach ensures that you have access to the most up-to-date and reliable data-driven insights.
+            </p>
+            <p>
+              In addition to our predictive models, we offer real-time charts for all Nifty 50 stocks, displaying up to 30 trading days of data. These interactive charts provide a visual representation of stock performance, allowing you to track trends, zoom in on specific time frames, and overlay technical indicators. Stay on top of market movements with live updates and detailed graphical analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  {% endblock content %}

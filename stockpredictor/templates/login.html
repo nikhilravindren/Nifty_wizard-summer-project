@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="padding-left: 25%; padding-right: 25%; padding-top: 5%; background-color: rgb(2, 2, 73); padding-bottom: 5%;">
+    <div class="card text-center" style="border-radius: 25px; border-color: black; border-width: 3px; background-color:  rgb(215, 215, 246);">
+        <div class="card-header" style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+          <h5>enter your details here</h5>
+        </div>
+        <div class="card-body" style="background-color:  rgb(215, 215, 246);">
+          <h5 class="card-title" >{{msg}}</h5>
+          <form action="" method="post">
+            {% csrf_token %}
+            <div style="color: rgb(2, 2, 6); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large; align-items: center;">
+            <label for="username">UserName</label>
+            <input type="text" name="username" id="username" style="border-radius: 20px; font-size: x-large" placeholder="enter username">
+            <br>
+            <br>
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password" style="border-radius: 20px; font-size: x-large" placeholder="enter password">
+        </div>
+          <p class="card-text"></p>
+          <button class="btn btn-primary" style="background-color: rgb(3, 3, 120);" type="submit" >Submit</button>
+        </form>
+        </div>
+        <div class="card-footer text-body-secondary">
+            don't have an account? 
+            <a href="{% url 'create' %}">create one</a>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
